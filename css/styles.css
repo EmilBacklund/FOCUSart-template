@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-primary: #212121;
+  --clr-text: #fff;
+  --clr-accent: #c77e98;
+  --ff-primary: "Comfortaa", sans-serif;
+  --ff-accent: "Calligraffitti", sans-serif;
+  --toggle-logo: url("../images/logo/focusart-darkmode.svg");
+  --toggle-icon: url("../images/icons/bulb.svg");
+  --toggle-arrow: url("../images/icons/arrow-white.svg");
+  --toggle-text: "Light Mode";
+}
+
+.light-mode {
+  --clr-primary: #edf2fc;
+  --clr-text: #000106;
+  --toggle-logo: url("../images/logo/focusart-lightmode.svg");
+  --toggle-icon: url("../images/icons/moon.svg");
+  --toggle-arrow: url("../images/icons/arrow-black.svg");
+  --toggle-text: "Dark Mode";
+}
+
+body {
+  background-color: var(--clr-primary);
+  color: var(--clr-text);
+  font-family: var(--ff-primary);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.25rem;
+}
+
+#toggleMode {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* #toggleMode:hover {
+  transform: scale(1.1);
+} */
+
+#toggleMode img {
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-text);
+}
+
+.focusart-logo {
+  background-image: var(--toggle-logo);
+}
+
+.previous-icon,
+.next-icon {
+  background-image: var(--toggle-arrow);
+  background-size: contain;
+  width: 189.56px;
+  height: 91.9px;
+  background-repeat: no-repeat;
+}
+
+.toggle-icon {
+  background-image: var(--toggle-icon);
+  background-size: contain;
+  width: 64px;
+  height: 64px;
+}
+
+#toggleText::before {
+  content: var(--toggle-text);
+}
+
+/* font-family: 'Calligraffitti', cursive; 
+font-family: 'Comfortaa', cursive;
+font-family: 'Sedgwick Ave', cursive;  */
