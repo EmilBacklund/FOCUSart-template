@@ -1,4 +1,4 @@
-const toggleMode = document.getElementById("toggleMode");
+const toggleMode = document.querySelectorAll(".toggle-mode");
 let lightMode = localStorage.getItem("lightMode");
 
 const enableLightMode = () => {
@@ -15,12 +15,14 @@ if (lightMode === "enabled") {
   enableLightMode();
 }
 
-toggleMode.addEventListener("click", () => {
-  lightMode = localStorage.getItem("lightMode");
-  if (lightMode !== "enabled") {
-    enableLightMode();
-    console.log("Lightmode: ", lightMode);
-  } else {
-    disableLightMode();
-  }
-});
+for (let i = 0; i < toggleMode.length; i++) {
+  toggleMode[i].addEventListener("click", () => {
+    lightMode = localStorage.getItem("lightMode");
+    if (lightMode !== "enabled") {
+      enableLightMode();
+      console.log("Lightmode: ", lightMode);
+    } else {
+      disableLightMode();
+    }
+  });
+}
