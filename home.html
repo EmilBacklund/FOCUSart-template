@@ -15,7 +15,7 @@
     />
   </head>
   <body>
-    <div class="container home-behaviour">
+    <div class="container content-behaviour">
       <aside class="aside-left">
         <nav class="aside-nav">
           <ul>
@@ -32,12 +32,20 @@
           <p>Click or hover over pictures to see more.</p>
         </div>
       </aside>
-      <div class="inner-container card-behaviour">
+      <div class="inner-container inner-behaviour">
         <div class="header-flex">
-          <div class="header-box">
-            <nav class="hamburger-menu">
+          <div class="header-box header-menu">
+            <div class="hamburger-menu">
               <div class="hamburger-icon"></div>
               <div class="hamburger-icon"></div>
+            </div>
+            <nav class="mobile-menu">
+              <ul>
+                <li><a class="active-mobile-link" href="home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
             </nav>
             <a href="home.html">
               <div class="focusart-logo"></div>
@@ -94,6 +102,14 @@
             </div>
           </div>
         </div>
+        <div class="mobile-image-nav">
+          <div class="previous-box">
+            <div class="previous-icon"></div>
+          </div>
+          <div class="next-box">
+            <div class="next-icon"></div>
+          </div>
+        </div>
       </div>
       <aside class="aside-right">
         <div class="aside-box">
@@ -108,6 +124,7 @@
         <div class="aside-box"></div>
       </aside>
     </div>
+    <script src="js/mobile-menu.js"></script>
     <script src="js/toggle-mode.js"></script>
   </body>
 </html>

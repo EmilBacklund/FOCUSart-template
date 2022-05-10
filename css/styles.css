@@ -38,6 +38,12 @@ body {
   line-height: 1.25rem;
 }
 
+.content-behaviour {
+  display: flex;
+  position: relative;
+  gap: 16px;
+}
+
 .toggle-mode {
   cursor: pointer;
   user-select: none;
@@ -82,6 +88,13 @@ a {
   max-width: 820px;
   display: flex;
   justify-content: space-between;
+}
+
+.inner-behaviour {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 5;
 }
 
 .header-flex {
@@ -160,6 +173,10 @@ a {
   display: none;
 }
 
+.mobile-menu {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .hamburger-menu {
     width: 2.063rem;
@@ -168,12 +185,26 @@ a {
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+    z-index: 9999;
   }
 
   .hamburger-icon {
     background: var(--toggle-hamburger-icon);
     width: 2.063rem;
     height: 0.25rem;
+    transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
+  }
+
+  .hamburger-menu.is-active .hamburger-icon:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .hamburger-menu.is-active .hamburger-icon:nth-child(2) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .active--hamburger-icon {
+    position: fixed;
   }
 
   .aside-left,
@@ -198,5 +229,61 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
+    max-width: 820px;
+  }
+
+  .header-menu {
+    width: 100%;
+  }
+
+  .header-flex {
+    flex-direction: column;
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .active-mobile-menu {
+    left: 0;
+    top: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: var(--clr-primary);
+    z-index: 5000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .active-mobile-menu ul {
+    list-style: none;
+  }
+
+  .active-mobile-menu ul li a {
+    font-size: 1.125rem;
+  }
+
+  .active-mobile-menu ul li {
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .active-mobile-link {
+    border-bottom: 2px solid var(--clr-accent);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    color: var(--clr-accent);
+    font-weight: 700;
+  }
+
+  .active-mobile-menu ul li:nth-child(4) {
+    margin-bottom: 0;
   }
 }
