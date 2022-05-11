@@ -1,0 +1,58 @@
+.attach-icon {
+  background: url("../images/icons/attach.svg");
+  height: 24px;
+  width: 24px;
+}
+
+.submit-button {
+  background-color: var(--clr-accent);
+  border: none;
+  height: 48px;
+  width: 131px;
+  border-radius: 10px;
+  color: var(--clr-primary);
+  font-size: 1.125rem;
+  font-family: "Comfortaa", sans-serif;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.attach-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 24px;
+}
+
+.fill-field {
+  height: 48px;
+  background-color: var(--clr-primary);
+  border: 1px solid var(--clr-accent);
+  border-radius: 10px;
+  color: var(--clr-text);
+  font-family: var(--ff-primary);
+  text-indent: 16px;
+}
+
+.contact-textarea {
+  background-color: var(--clr-primary);
+  border: 1px solid var(--clr-accent);
+  border-radius: 10px;
+  color: var(--clr-text);
+  font-family: var(--ff-primary);
+  padding: 16px;
+  margin-bottom: 32px;
+}
+
+.contact-text {
+}
