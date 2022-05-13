@@ -104,8 +104,10 @@
     <section class="carousel-container">
       <h1 class="carousel-h1">HOW WE HELP ARTISTS</h1>
       <nav class="carousel-inner-container">
-        <div class="carousel-left-arrow"></div>
-        <div class="carousel-right-arrow"></div>
+        <div
+          class="carousel-left-arrow carousel__button carousel-arrow-hidden"
+        ></div>
+        <div class="carousel-right-arrow carousel__button"></div>
 
         <div class="carousel-nav-numbers">
           <div class="carousel-nav carousel-nav-active">
@@ -122,45 +124,60 @@
           </div>
         </div>
       </nav>
-      <div class="carousel-slide">
-        <div class="carousel-image carousel-image-1" id="lastClone">
-          <h2 class="carousel-heading">Get publicity</h2>
-          <p class="carousel-text">
-            More visitor for your other platforms and social media.
-          </p>
-        </div>
-        <div class="carousel-image carousel-image-1">
-          <h2 class="carousel-heading">Write to us on contact page</h2>
-          <p class="carousel-text">
-            Fill out the information we need, and we’ll put you up on
-            focusart.net
-          </p>
-        </div>
-        <div class="carousel-image carousel-image-1">
-          <h2 class="carousel-heading">Your work will be displayed</h2>
-          <p class="carousel-text">
-            The information you sent us will be displayed on the home page and
-            in the gallery.
-          </p>
-        </div>
-        <div class="carousel-image carousel-image-1">
-          <h2 class="carousel-heading">Reach new audience</h2>
-          <p class="carousel-text">
-            Users will be able to find you and admire your work.
-          </p>
-        </div>
-        <div class="carousel-image carousel-image-1">
-          <h2 class="carousel-heading">Get publicity</h2>
-          <p class="carousel-text">
-            More visitor for your other platforms and social media.
-          </p>
-        </div>
-        <div class="carousel-image carousel-image-1" id="firstClone">
-          <h2 class="carousel-heading">Write to us on contact page</h2>
-          <p class="carousel-text">
-            Fill out the information we need, and we’ll put you up on
-            focusart.net
-          </p>
+      <div class="carousel">
+        <div class="carousel__track-container">
+          <ul class="carousel__track">
+            <li class="carousel__slide current-slide">
+              <img
+                class="carousel__images"
+                src="images/carousel_1.jpg"
+                alt=""
+              />
+              <h2 class="carousel-heading">Write to us on contact page</h2>
+              <p class="carousel-text">
+                Fill out the information we need, and we’ll put you up on
+                focusart.net
+              </p>
+              <div class="carousel-overlay"></div>
+            </li>
+            <li class="carousel__slide">
+              <img
+                class="carousel__images"
+                src="images/about-header.jpg"
+                alt=""
+              />
+              <h2 class="carousel-heading">Your work will be displayed</h2>
+              <p class="carousel-text">
+                The information you sent us will be displayed on the home page
+                and in the gallery.
+              </p>
+              <div class="carousel-overlay"></div>
+            </li>
+            <li class="carousel__slide">
+              <img
+                class="carousel__images"
+                src="images/carousel_1.jpg"
+                alt=""
+              />
+              <h2 class="carousel-heading">Reach new audience</h2>
+              <p class="carousel-text">
+                Users will be able to find you and admire your work.
+              </p>
+              <div class="carousel-overlay"></div>
+            </li>
+            <li class="carousel__slide">
+              <img
+                class="carousel__images"
+                src="images/carousel_1.jpg"
+                alt=""
+              />
+              <h2 class="carousel-heading">Get publicity</h2>
+              <p class="carousel-text">
+                More visitor for your other platforms and social media.
+              </p>
+              <div class="carousel-overlay"></div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>

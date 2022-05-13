@@ -103,6 +103,14 @@
   justify-content: center;
 }
 
+.carousel-container {
+  width: 100%;
+  margin: auto;
+}
+
+.carousel-slide {
+}
+
 @media screen and (max-width: 768px) {
   .aside-left .previous-icon,
   .aside-right .next-icon {

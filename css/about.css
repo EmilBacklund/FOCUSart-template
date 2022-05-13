@@ -96,25 +96,52 @@
   overflow: hidden;
 }
 
-.carousel-slide {
+.carousel {
   height: 100%;
   width: 100%;
-  display: flex;
 }
 
-.carousel-image-1 {
-  background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0.4)
-    ),
-    url("../images/carousel_1.jpg");
-  min-width: 100%;
+.carousel__images {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel__track-container {
   height: 100%;
   position: relative;
-  z-index: -1;
-  background-position: center;
+}
+
+.carousel__track {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  height: 100%;
+  transition: transform 0.25s ease-in;
+}
+
+.carousel__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.carousel-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.4)
+  );
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .carousel-h1 {
@@ -125,7 +152,7 @@
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .carousel-inner-container {
@@ -159,6 +186,10 @@
   transform: translateY(-50%);
 }
 
+.carousel-arrow-hidden {
+  display: none;
+}
+
 .carousel-nav-numbers {
   list-style: none;
   position: absolute;
@@ -167,6 +198,7 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #fff;
 }
 
 .carousel-nav-active {
@@ -181,7 +213,6 @@
   font-size: 1rem;
   position: relative;
   cursor: pointer;
-  color: #fff;
 }
 
 .carousel-number {
@@ -202,6 +233,7 @@
   color: #fff;
   text-align: center;
   width: 100%;
+  z-index: 2000;
 }
 
 .carousel-text {
@@ -213,6 +245,7 @@
   color: #fff;
   text-align: center;
   width: 100%;
+  z-index: 2000;
 }
 
 .explanation-section {
