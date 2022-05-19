@@ -1,22 +1,22 @@
-const images = document.querySelectorAll(".image img");
-const modal = document.querySelector(".modal");
-const modalImg = document.querySelector(".modal-image");
-const modalText = document.querySelector(".modal-text");
-const closeModal = document.querySelector(".close");
-const nextBtn = document.querySelector(".next-button");
-const prevBtn = document.querySelector(".prev-button");
+const images = document.querySelectorAll('.image img');
+const modal = document.querySelector('.modal');
+const modalImg = document.querySelector('.modal-image');
+const modalText = document.querySelector('.modal-text');
+const closeModal = document.querySelector('.close');
+const nextBtn = document.querySelector('.next-button');
+const prevBtn = document.querySelector('.prev-button');
 
 images.forEach((image, index) => {
-  image.addEventListener("click", () => {
+  image.addEventListener('click', () => {
     modalImg.src = image.src;
     modalText.innerHTML = image.alt;
-    modal.classList.add("appear");
+    modal.classList.add('appear');
 
     let imageIndex = index;
     let next = imageIndex++;
     let prev = imageIndex--;
 
-    window.addEventListener("keyup", (e) => {
+    window.addEventListener('keyup', (e) => {
       if (next >= images.length) {
         next = 0;
       }
@@ -35,11 +35,11 @@ images.forEach((image, index) => {
         next++;
         prev = next - 2;
       } else if (e.keyCode === 27) {
-        modal.classList.remove("appear");
+        modal.classList.remove('appear');
       }
     });
 
-    prevBtn.addEventListener("click", () => {
+    prevBtn.addEventListener('click', () => {
       if (next >= images.length) {
         next = 0;
       }
@@ -52,7 +52,7 @@ images.forEach((image, index) => {
       next = prev + 2;
     });
 
-    nextBtn.addEventListener("click", () => {
+    nextBtn.addEventListener('click', () => {
       if (next >= images.length) {
         next = 0;
       }
@@ -65,8 +65,8 @@ images.forEach((image, index) => {
       prev = next - 2;
     });
 
-    closeModal.addEventListener("click", () => {
-      modal.classList.remove("appear");
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('appear');
     });
   });
 });

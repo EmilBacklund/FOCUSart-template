@@ -201,7 +201,7 @@
   }
 
   .active-mobile-instructions {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
@@ -238,12 +238,15 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    height: 100%;
   }
 
   .instruction-list {
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     gap: 16px;
+    height: 100%;
   }
 
   .instruction-list li {
