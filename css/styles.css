@@ -15,6 +15,7 @@
   --toggle-arrow-next: url("../images/icons/next-white.svg");
   --toggle-arrow-previous: url("../images/icons/previous-white.svg");
   --toggle-hamburger-icon: url("../images/icons/hamburger-white.svg");
+  --toggle-close-icon: url("../images/icons/close-menu.svg");
   --toggle-text: "Light Mode";
 }
 
@@ -26,6 +27,7 @@
   --toggle-arrow-next: url("../images/icons/next-dark.svg");
   --toggle-arrow-previous: url("../images/icons/previous-dark.svg");
   --toggle-hamburger-icon: url("../images/icons/hamburger-dark.svg");
+  --toggle-close-icon: url("../images/icons/close-menu-dark.svg");
   --toggle-text: "Dark Mode";
 }
 
@@ -217,10 +219,10 @@ a {
   .toggle-icon {
     background-image: var(--toggle-icon);
     background-size: contain;
-    width: 2rem;
-    height: 2rem;
     margin-bottom: 0;
     margin-right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .header-box {
@@ -283,5 +285,11 @@ a {
 
   .active-mobile-menu ul li:nth-child(4) {
     margin-bottom: 0;
+  }
+
+  .focusart-logo {
+    width: 130px;
+    height: 20px;
+    background-size: cover;
   }
 }

@@ -1,3 +1,8 @@
+.container {
+  height: 960px;
+  margin-bottom: 48px;
+}
+
 .attach-icon {
   background: url("../images/icons/attach.svg");
   height: 24px;
@@ -13,12 +18,17 @@
   color: var(--clr-primary);
   font-size: 1.125rem;
   font-family: "Comfortaa", sans-serif;
+  cursor: pointer;
+  font-weight: 700;
 }
 
 .contact-section {
+  position: absolute;
   display: flex;
   flex-direction: column;
   max-width: 400px;
+  bottom: 5%;
+  right: 0;
 }
 
 .form-field {
@@ -54,5 +64,206 @@
   margin-bottom: 32px;
 }
 
+.contact-text h1 {
+  font-family: var(--ff-accent);
+  font-size: 2rem;
+  line-height: normal;
+  letter-spacing: 0.25rem;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.aside-nav {
+  flex: 0;
+}
+
+.aside-left {
+  position: relative;
+}
+
+.instruction-section {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 400px;
+  bottom: 14%;
+  left: 0;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.instructions li {
+  font-weight: 200;
+  font-size: 1.125rem;
+}
+
+.inner-behaviour {
+  position: relative;
+}
+
 .contact-text {
+  margin-bottom: 102px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-text p {
+  font-weight: 200;
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.instruction-section h1 {
+  font-family: var(--ff-accent);
+  font-size: 1.5rem;
+  letter-spacing: 0.25rem;
+}
+
+.show-mobile {
+  display: none;
+}
+
+.mobile-instructions {
+  display: none;
+}
+
+@media screen and (max-width: 1085px) {
+  .instruction-section {
+    min-width: 250px;
+    bottom: 0;
+  }
+
+  .contact-section {
+    max-width: 300px;
+    bottom: 2%;
+  }
+
+  .contact-text h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact-section {
+    position: unset;
+  }
+
+  .contact-section {
+    max-width: unset;
+    width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .show-mobile {
+    display: flex;
+    justify-content: center;
+  }
+
+  .show-mobile p {
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: 1.125rem;
+    display: inline-block;
+  }
+
+  .instruction-icon {
+    background: url("../images/icons/instruction.svg");
+    height: 24px;
+    width: 24px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    transform: translateY(5px);
+    cursor: pointer;
+  }
+
+  .inner-behaviour {
+    justify-content: flex-start;
+  }
+
+  .contact-text {
+    margin-bottom: 48px;
+    margin-top: 16px;
+  }
+
+  .container {
+    height: fit-content;
+    margin-bottom: 0;
+  }
+
+  .active-mobile-instructions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--clr-primary);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .close {
+    background: var(--toggle-close-icon);
+    height: 26px;
+    width: 26px;
+    background-size: cover;
+    margin: 28px 0;
+    cursor: pointer;
+  }
+
+  .instruction-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .mobile-instructions h1 {
+    font-size: 1.5rem;
+    font-family: var(--ff-accent);
+    letter-spacing: 0.25rem;
+    text-align: center;
+    line-height: normal;
+  }
+
+  .instruction-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .instruction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .instruction-list li {
+    font-size: 1.125rem;
+  }
+
+  .close-button {
+    background-color: var(--clr-accent);
+    border: none;
+    height: 48px;
+    width: 100%;
+    border-radius: 10px;
+    color: var(--clr-primary);
+    font-size: 1.125rem;
+    font-family: "Comfortaa", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
 }
