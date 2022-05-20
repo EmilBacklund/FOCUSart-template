@@ -8,6 +8,8 @@
   --clr-primary: #212121;
   --clr-text: #fff;
   --clr-accent: #c77e98;
+  --clr-emph: rgb(118, 125, 160);
+  --overlay-opacity: 0.6;
   --ff-primary: "Comfortaa", sans-serif;
   --ff-accent: "Calligraffitti", sans-serif;
   --toggle-logo: url("../images/logo/focusart-darkmode.svg");
@@ -20,6 +22,8 @@
 }
 
 .light-mode {
+  --overlay-opacity: 0.3;
+  --clr-emph: rgb(105, 125, 223);
   --clr-primary: #faf0e6;
   --clr-text: #000106;
   --toggle-logo: url("../images/logo/focusart-lightmode.svg");
@@ -161,9 +165,17 @@ a {
 
 .aside-nav ul li a {
   font-size: 1.125rem;
+  letter-spacing: 0.1rem;
+}
+
+.aside-nav ul li a:hover {
+  color: var(--clr-accent);
 }
 
 .active-link {
+  border-bottom: 2px solid var(--clr-accent);
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
   color: var(--clr-accent);
   font-weight: 700;
 }
@@ -268,6 +280,11 @@ a {
 
   .active-mobile-menu ul li a {
     font-size: 1.125rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .active-mobile-menu ul li a:hover {
+    color: var(--clr-accent);
   }
 
   .active-mobile-menu ul li {
