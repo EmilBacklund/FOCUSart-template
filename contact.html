@@ -25,6 +25,24 @@
             <li><a class="active-link" href="contact.html">Contact</a></li>
           </ul>
         </nav>
+        <section class="instruction-section">
+          <h1>Instructions</h1>
+          <ul class="instructions">
+            <li>Add text that you want to present about yourself</li>
+            <li>
+              Write me your name that you want to present; artistname, nickname
+              or firstname
+            </li>
+            <li>Write me all links and social media you want to present</li>
+            <li>Add 1 main image that you want to highlight, name it “main”</li>
+            <li>
+              Add 1 or 2 secondary images. Name them “secondary-1” and
+              “secondary-2”
+            </li>
+            <li>Try to reduce the sizes of the images as much as possible</li>
+            <li>(optional) Add a picture of yourself</li>
+          </ul>
+        </section>
       </aside>
       <div class="inner-container inner-behaviour">
         <div class="header-flex">
@@ -54,9 +72,47 @@
         <section class="contact-section">
           <div class="contact-text">
             <h1>Want to get promoted?</h1>
-            <p>Do you have problem to reach out?</p>
-            <p>Want to get more attention to your work?</p>
-            <p>We are eager to help anyone, it doesn't matter who you are.</p>
+            <p class="hide-mobile">Do you have problem to reach out?</p>
+            <p class="hide-mobile">Want to get more attention to your work?</p>
+            <p class="hide-mobile">
+              We are eager to help anyone, it doesn't matter who you are.
+            </p>
+            <div class="show-mobile">
+              <p>
+                Read the instructions before you fill out the contact form:
+                <i class="instruction-icon"></i>
+              </p>
+            </div>
+          </div>
+          <div class="mobile-instructions">
+            <div class="instruction-container">
+              <div class="close"></div>
+              <div class="instruction-content">
+                <h1>Instructions</h1>
+                <ul class="instruction-list">
+                  <li>Add text that you want to present about yourself</li>
+                  <li>
+                    Write me your name that you want to present; artistname,
+                    nickname or firstname
+                  </li>
+                  <li>
+                    Write me all links and social media you want to present
+                  </li>
+                  <li>
+                    Add 1 main image that you want to highlight, name it “main”
+                  </li>
+                  <li>
+                    Add 1 or 2 secondary images. Name them “secondary-1” and
+                    “secondary-2”
+                  </li>
+                  <li>
+                    Try to reduce the sizes of the images as much as possible
+                  </li>
+                  <li>(optional) Add a picture of yourself</li>
+                </ul>
+                <button class="close-button">Close</button>
+              </div>
+            </div>
           </div>
           <label class="form-field">
             Name
@@ -93,5 +149,6 @@
     </div>
     <script src="js/mobile-menu.js"></script>
     <script src="js/toggle-mode.js"></script>
+    <script src="js/instructions.js"></script>
   </body>
 </html>

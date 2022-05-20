@@ -1,0 +1,152 @@
+.main-picture {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.profile-header {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.artist-name-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 3, 3, 0.8) 3.33%,
+    rgba(3, 3, 3, 0.4) 100%
+  );
+  color: #fff;
+  border-radius: 0 0 5px;
+}
+
+.artist-name-card h2 {
+  font-size: 1.125rem;
+}
+
+.profile-pic {
+  position: absolute;
+  max-width: 146px;
+  max-height: 219px;
+  background-size: cover;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.detail-intro-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.detail-intro {
+  min-width: 290.75px;
+  max-height: 309px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+.detail-img {
+  width: 100%;
+  max-height: 100%;
+  background-size: contain;
+}
+
+.profile-info-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  flex: 1;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  width: 50%;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-icons {
+  cursor: pointer;
+}
+
+.profile-info a:hover {
+  text-decoration: underline;
+}
+
+.detail-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.emph-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clr-emph);
+}
+
+@media screen and (max-width: 1000px) {
+  .profile-info {
+    min-width: 285px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .artist-name-card h2 {
+    font-size: 0.8rem;
+  }
+
+  .artist-name-card {
+    padding: 0.75rem;
+  }
+
+  .content-behaviour {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .profile-info {
+    min-width: 100%;
+  }
+
+  .detail-intro {
+    min-width: 100%;
+  }
+
+  .main-picture {
+    height: 200px;
+  }
+
+  .profile-pic {
+    max-height: 140px;
+    right: 1.25rem;
+    top: 50%;
+  }
+}

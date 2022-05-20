@@ -6,7 +6,14 @@
   background-size: cover;
   background-position: center;
   transform: scaleX(-1);
-  opacity: 0.25;
+}
+
+.header-overlay {
+  background-color: var(--clr-primary);
+  position: absolute;
+  width: 100%;
+  height: 330px;
+  opacity: var(--overlay-opacity);
 }
 
 .about-text {

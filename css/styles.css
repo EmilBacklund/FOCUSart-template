@@ -8,6 +8,8 @@
   --clr-primary: #212121;
   --clr-text: #fff;
   --clr-accent: #c77e98;
+  --clr-emph: rgb(118, 125, 160);
+  --overlay-opacity: 0.6;
   --ff-primary: "Comfortaa", sans-serif;
   --ff-accent: "Calligraffitti", sans-serif;
   --toggle-logo: url("../images/logo/focusart-darkmode.svg");
@@ -15,10 +17,13 @@
   --toggle-arrow-next: url("../images/icons/next-white.svg");
   --toggle-arrow-previous: url("../images/icons/previous-white.svg");
   --toggle-hamburger-icon: url("../images/icons/hamburger-white.svg");
+  --toggle-close-icon: url("../images/icons/close-menu.svg");
   --toggle-text: "Light Mode";
 }
 
 .light-mode {
+  --overlay-opacity: 0.3;
+  --clr-emph: rgb(105, 125, 223);
   --clr-primary: #faf0e6;
   --clr-text: #000106;
   --toggle-logo: url("../images/logo/focusart-lightmode.svg");
@@ -26,6 +31,7 @@
   --toggle-arrow-next: url("../images/icons/next-dark.svg");
   --toggle-arrow-previous: url("../images/icons/previous-dark.svg");
   --toggle-hamburger-icon: url("../images/icons/hamburger-dark.svg");
+  --toggle-close-icon: url("../images/icons/close-menu-dark.svg");
   --toggle-text: "Dark Mode";
 }
 
@@ -159,9 +165,17 @@ a {
 
 .aside-nav ul li a {
   font-size: 1.125rem;
+  letter-spacing: 0.1rem;
+}
+
+.aside-nav ul li a:hover {
+  color: var(--clr-accent);
 }
 
 .active-link {
+  border-bottom: 2px solid var(--clr-accent);
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
   color: var(--clr-accent);
   font-weight: 700;
 }
@@ -217,10 +231,10 @@ a {
   .toggle-icon {
     background-image: var(--toggle-icon);
     background-size: contain;
-    width: 2rem;
-    height: 2rem;
     margin-bottom: 0;
     margin-right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .header-box {
@@ -266,6 +280,11 @@ a {
 
   .active-mobile-menu ul li a {
     font-size: 1.125rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .active-mobile-menu ul li a:hover {
+    color: var(--clr-accent);
   }
 
   .active-mobile-menu ul li {
@@ -283,5 +302,11 @@ a {
 
   .active-mobile-menu ul li:nth-child(4) {
     margin-bottom: 0;
+  }
+
+  .focusart-logo {
+    width: 130px;
+    height: 20px;
+    background-size: cover;
   }
 }
