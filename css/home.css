@@ -103,12 +103,16 @@
   justify-content: center;
 }
 
-.carousel-container {
-  width: 100%;
-  margin: auto;
+.carousel {
+  position: relative;
 }
 
-.carousel-slide {
+.carousel__item {
+  display: none;
+}
+
+.carousel__item-selected {
+  display: block;
 }
 
 @media screen and (max-width: 768px) {
