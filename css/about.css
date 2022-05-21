@@ -24,6 +24,10 @@
   gap: 20px;
 }
 
+.about-text p {
+  font-weight: 500;
+}
+
 .inner-behaviour-about {
   height: 330px;
   display: flex;
@@ -300,6 +304,10 @@
 
   .introduction-info {
     gap: 32px;
+  }
+
+  .header-overlay {
+    opacity: 0.6;
   }
 
   .explanation-section {

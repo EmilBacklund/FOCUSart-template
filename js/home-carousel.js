@@ -1,20 +1,46 @@
-const buttons = document.querySelectorAll("[data-carousel-button]");
+const carouselSlide = document.querySelector(".carousel-slide");
+const carouselImages = document.querySelectorAll(".carousel-slide img");
+const carouselSection = document.querySelectorAll(".carousel-section");
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const offset = button.dataset.carouselButton === "next" ? 1 : -1;
-    const slides = button
-      .closest("[data-carousel]")
-      .querySelector("[data-slides]");
+const prevBtn = document.querySelector("#prevBtn");
+const nextBtn = document.querySelector("#nextBtn");
+const prevBtnMobile = document.querySelector("#prevBtnMobile");
+const nextBtnMobile = document.querySelector("#nextBtnMobile");
 
-    const activeSlide = slides.querySelector("[data-active]");
-    let newIndex = [...slides.children].indexOf(activeSlide) + offset;
-    if (newIndex < 0) newIndex = slides.children.length - 1;
-    if (newIndex >= slides.children.length) newIndex = 0;
+let counter = 1;
 
-    slides.children[newIndex].dataset.active = true;
-    delete activeSlides.dataset.active;
-  });
+const size = carouselSection[0].getBoundingClientRect().width;
+
+const setSlidePosition = (slide, index) => {
+  slide.style.left = size * index + "px";
+};
+carouselSection.forEach(setSlidePosition);
+
+// carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+
+nextBtn.addEventListener("click", () => {
+  if (counter >= carouselSection.length - 1) return;
+  carouselSlide.style.transition = `transform 0.4s ease-in-out`;
+  counter++;
+  carouselSlide.style.transform = `translateX(${-size * counter}px)`;
 });
 
-// 09:55
+prevBtn.addEventListener("click", () => {
+  if (counter <= 0) return;
+  carouselSlide.style.transition = `transform 0.4s ease-in-out`;
+  counter--;
+  carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+});
+
+carouselSlide.addEventListener("transitionend", () => {
+  if (carouselSection[counter].id === "lastClone") {
+    carouselSlide.style.transition = `none`;
+    counter = carouselSection.length - 2;
+    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+  }
+  if (carouselSection[counter].id === "firstClone") {
+    carouselSlide.style.transition = `none`;
+    counter = carouselSection.length - counter;
+    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+  }
+});
