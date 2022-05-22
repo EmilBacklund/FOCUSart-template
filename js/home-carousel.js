@@ -1,46 +1,70 @@
-const carouselSlide = document.querySelector(".carousel-slide");
-const carouselImages = document.querySelectorAll(".carousel-slide img");
-const carouselSection = document.querySelectorAll(".carousel-section");
+const track = document.querySelector(".carousel-track");
+const slides = Array.from(track.children);
+const nextBtn = document.querySelectorAll(".next-icon");
+const prevBtn = document.querySelectorAll(".previous-icon");
+const dotsNav = document.querySelector(".carousel-nav");
+const dots = Array.from(dotsNav.children);
 
-const prevBtn = document.querySelector("#prevBtn");
-const nextBtn = document.querySelector("#nextBtn");
-const prevBtnMobile = document.querySelector("#prevBtnMobile");
-const nextBtnMobile = document.querySelector("#nextBtnMobile");
-
-let counter = 1;
-
-const size = carouselSection[0].getBoundingClientRect().width;
+const slideWidth = slides[0].getBoundingClientRect().width;
 
 const setSlidePosition = (slide, index) => {
-  slide.style.left = size * index + "px";
+  slide.style.left = slideWidth * index + "px";
 };
-carouselSection.forEach(setSlidePosition);
 
-// carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+slides.forEach(setSlidePosition);
 
-nextBtn.addEventListener("click", () => {
-  if (counter >= carouselSection.length - 1) return;
-  carouselSlide.style.transition = `transform 0.4s ease-in-out`;
-  counter++;
-  carouselSlide.style.transform = `translateX(${-size * counter}px)`;
-});
+const moveToSlide = (track, currentSlide, targetSlide) => {
+  track.style.transform = "translateX(-" + targetSlide.style.left + ")";
+  currentSlide.classList.remove("current-slide");
+  targetSlide.classList.add("current-slide");
+};
 
-prevBtn.addEventListener("click", () => {
-  if (counter <= 0) return;
-  carouselSlide.style.transition = `transform 0.4s ease-in-out`;
-  counter--;
-  carouselSlide.style.transform = `translateX(${-size * counter}px)`;
-});
+const updateDots = (currentDot, targetDot) => {
+  currentDot.classList.remove("current-slide");
+  targetDot.classList.add("current-slide");
+};
 
-carouselSlide.addEventListener("transitionend", () => {
-  if (carouselSection[counter].id === "lastClone") {
-    carouselSlide.style.transition = `none`;
-    counter = carouselSection.length - 2;
-    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+const hideShowArrows = (slides, prevBtn, nextBtn, targetIndex) => {
+  for (i = 0; i < nextBtn.length; i++) {
+    if (targetIndex === 0) {
+      prevBtn[i].classList.add("is-hidden");
+      nextBtn[i].classList.remove("is-hidden");
+    } else if (targetIndex === slides.length - 1) {
+      prevBtn[i].classList.remove("is-hidden");
+      nextBtn[i].classList.add("is-hidden");
+    } else {
+      prevBtn[i].classList.remove("is-hidden");
+      nextBtn[i].classList.remove("is-hidden");
+    }
   }
-  if (carouselSection[counter].id === "firstClone") {
-    carouselSlide.style.transition = `none`;
-    counter = carouselSection.length - counter;
-    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
-  }
-});
+};
+
+for (i = 0; i < prevBtn.length; i++) {
+  prevBtn[i].addEventListener("click", (e) => {
+    const currentSlide = track.querySelector(".current-slide");
+    const prevSlide = currentSlide.previousElementSibling;
+    const prevIndex = slides.findIndex((slide) => slide === prevSlide);
+
+    const currentDot = dotsNav.querySelector(".current-slide");
+    const prevDot = currentDot.previousElementSibling;
+
+    moveToSlide(track, currentSlide, prevSlide);
+    updateDots(currentDot, prevDot);
+    hideShowArrows(slides, prevBtn, nextBtn, prevIndex);
+  });
+}
+
+for (i = 0; i < nextBtn.length; i++) {
+  nextBtn[i].addEventListener("click", (e) => {
+    const currentSlide = track.querySelector(".current-slide");
+    const nextSlide = currentSlide.nextElementSibling;
+    const nextIndex = slides.findIndex((slide) => slide === nextSlide);
+
+    const currentDot = dotsNav.querySelector(".current-slide");
+    const nextDot = currentDot.nextElementSibling;
+
+    moveToSlide(track, currentSlide, nextSlide);
+    updateDots(currentDot, nextDot);
+    hideShowArrows(slides, prevBtn, nextBtn, nextIndex);
+  });
+}
