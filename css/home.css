@@ -58,7 +58,7 @@
   user-select: none;
   max-height: 132px;
   flex: 1;
-  z-index: 99999;
+  z-index: 9999;
 }
 
 .previous-icon,
