@@ -28,6 +28,7 @@
   object-position: 50% 50%;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  user-select: none;
 }
 
 .gallery-item:hover .image img {
@@ -127,6 +128,8 @@
 .modal-image {
   width: 80%;
   max-width: 700px;
+  pointer-events: none;
+  user-select: none;
 }
 
 .modal-text {
@@ -150,7 +153,7 @@
   top: 50%;
   cursor: pointer;
   height: 2rem;
-    width: 2rem;
+  width: 2rem;
 }
 
 .prev-button {
@@ -240,7 +243,6 @@
     bottom: 2rem;
     top: unset;
     cursor: pointer;
-    
   }
 
   .prev-button {

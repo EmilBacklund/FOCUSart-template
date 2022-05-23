@@ -154,6 +154,10 @@ a {
   width: 90%;
 }
 
+.aside-nav ul {
+  z-index: 2000;
+}
+
 .aside-nav ul li {
   list-style: none;
   margin-bottom: 1.5rem;
