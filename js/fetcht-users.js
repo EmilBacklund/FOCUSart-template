@@ -8,7 +8,8 @@ async function fetchUsers() {
     const userData = await response.json();
 
     for (i = 0; i < userData.length; i++) {
-      console.log(userData[i].acf);
+      //   console.log(userData[i].acf);
+      console.log(card[i].outerHTML);
       const data = userData[i].acf;
       let artistName = data.artist_name;
       let mainImage = data.main_image.url;
@@ -23,6 +24,10 @@ async function fetchUsers() {
       <div class="card-info">
         <p>See more of ${artistName}</p>
       </div>`;
+
+      //   card[i].outerHTML += `
+      //   <div class="card" onclick="javascript:window.location='/detailpage.html?id=${data}'"></div>
+      //   `;
     }
   } catch (error) {}
 }
