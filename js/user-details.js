@@ -69,6 +69,45 @@ async function fetchDetails() {
         removeEmpty.parentNode.removeChild(removeEmpty);
       }
     }
+
+    const socialIcons = [
+      userDetail.social_icon_behance.url,
+      userDetail.social_icon_devianart.url,
+      userDetail.social_icon_facebook.url,
+      userDetail.social_icon_instagram.url,
+      userDetail.social_icon_pinterest.url,
+      userDetail.social_icon_tublr.url,
+      userDetail.social_icon_twitter.url,
+      userDetail.social_icon_vk.url,
+      userDetail.social_icon_youtube.url,
+    ];
+
+    const socialLinks = [
+      userDetail.social_link_behance,
+      userDetail.social_link_devianart,
+      userDetail.social_link_facebook,
+      userDetail.social_link_instagram,
+      userDetail.social_link_pinterest,
+      userDetail.social_link_tumblr,
+      userDetail.social_link_twitter,
+      userDetail.social_link_vk,
+      userDetail.social_link_youtube,
+    ];
+
+    for (i = 0; i < socialIcons.length; i++) {
+      if (socialIcons[i]) {
+        console.log(socialIcons[i]);
+        social.innerHTML += `
+    <a href=${socialLinks[i]} target="_blank">
+    <img
+      class="social-icons"
+      src=${socialIcons[i]}
+      alt=""
+    />
+  </a>
+    `;
+      }
+    }
   } catch (error) {}
 }
 

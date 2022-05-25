@@ -9,14 +9,13 @@ async function fetchUsers() {
     const userData = await response.json();
 
     console.log(userData);
-    // console.log(userData[0].id);
     for (i = 0; i < userData.length; i++) {
       // console.log(userData[i].acf);
       const data = userData[i].acf;
       let artistName = data.artist_name;
       let mainImage = data.main_image.url;
       let mainImageAlt = data.main_image.alt;
-      let mainImageName = data.main_image_name;
+      // let mainImageName = data.main_image_name;
 
       card[
         i

@@ -5,9 +5,10 @@ body img {
 }
 
 .main-picture {
-  height: 300px;
+  height: 100%;
   width: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 .profile-header {
@@ -54,7 +55,6 @@ body img {
 
 .detail-intro {
   min-width: 290.75px;
-  max-height: 309px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -64,8 +64,9 @@ body img {
 
 .detail-img {
   width: 100%;
-  max-height: 100%;
-  background-size: contain;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .profile-info-flex {
@@ -92,7 +93,12 @@ body img {
 
 .social {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.social a {
+  height: 32px;
 }
 
 .social-icons {
