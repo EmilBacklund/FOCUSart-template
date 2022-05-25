@@ -5,16 +5,17 @@ const id = params.get("id");
 
 const url = `https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts/${id}?acf_format=standard`;
 
-const artistName = document.querySelector(".artist-name");
-const mainImage = document.querySelector(".main-picture");
 const paragraph1 = document.querySelector(".paragraph_1");
 const paragraph2 = document.querySelector(".paragraph_2");
-const secImg1 = document.querySelector(".secondary-image_1");
-const secImg2 = document.querySelector(".secondary-image_2");
+const section1 = document.querySelector(".section_1");
+const section2 = document.querySelector(".section_2");
 const email = document.querySelector(".email");
 const phoneNumber = document.querySelector(".phone-number");
 const links = document.querySelector(".links");
 const social = document.querySelector(".social");
+const header = document.querySelector(".profile-header");
+
+header.innerHTML = `<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>`;
 
 async function fetchDetails() {
   try {
@@ -26,12 +27,19 @@ async function fetchDetails() {
 
     document.title = `Focusart | ${userDetail.artist_name}`;
 
-    artistName.innerHTML = `${userDetail.artist_name}`;
-    mainImage.src = `${userDetail.main_image.url}`;
-    paragraph1.innerHTML = `${userDetail.paragraph}`;
-    paragraph2.innerHTML = `${userDetail.paragraph2}`;
-    secImg1.src = `${userDetail.secondary1_image.url}`;
-    secImg2.src = `${userDetail.secondary2_image.url}`;
+    header.innerHTML = `
+    <div class="artist-name-card">
+            <h2 class="artist-name">${userDetail.artist_name}</h2>
+          </div>
+          <img class="main-picture" src=${userDetail.main_image.url} alt="" />
+          <img class="profile-pic" src="" alt="" />
+    `;
+
+    section1.innerHTML = `<p class="paragraph_1">${userDetail.paragraph}</p>
+    <img class="detail-img secondary-image_1" src=${userDetail.secondary1_image.url} alt="" />`;
+
+    section2.innerHTML = `<p class="paragraph_2">${userDetail.paragraph2}</p>
+    <img class="detail-img secondary-image_2" src=${userDetail.secondary2_image.url} alt="" />`;
 
     if (!userDetail.email) {
       email.innerHTML = `N/A`;
