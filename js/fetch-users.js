@@ -15,7 +15,7 @@ async function fetchUsers() {
       let artistName = data.artist_name;
       let mainImage = data.main_image.url;
       let mainImageAlt = data.main_image.alt;
-      // let mainImageName = data.main_image_name;
+      let mainImageName = data.main_image_name;
 
       card[
         i
