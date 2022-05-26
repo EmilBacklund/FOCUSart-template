@@ -1,28 +1,35 @@
 const api =
   "https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=12";
+const apiNext =
+  "https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&offset=12";
 
 const galleryImages = document.querySelectorAll(".image");
 const username = document.querySelectorAll(".username");
 const modalText = document.querySelector(".modal-text");
-
-console.log(galleryImages);
+const gridContainer = document.querySelector(".grid-container");
+const loading = document.querySelector(".lds-ellipsis");
 
 async function fetchUsers() {
   try {
     const response = await fetch(api);
     const userData = await response.json();
+    const responseNext = await fetch(apiNext);
+    const userDataNext = await responseNext.json();
+
+    console.log(userDataNext.length);
+
+    console.log(userDataNext);
 
     for (i = 0; i < userData.length; i++) {
       const data = userData[i].acf;
       let artistName = data.artist_name;
       let mainImage = data.main_image.url;
-      let mainImageAlt = data.main_image.alt;
       let mainImageName = data.main_image_name;
 
       galleryImages[i].innerHTML += `
         <img
                   src=${mainImage}
-                  alt=${mainImageAlt}
+                  alt="${mainImageName}"
                 />
         `;
 
@@ -109,8 +116,25 @@ async function fetchUsers() {
       modalImg.setAttribute("draggable", false);
     }
 
-    console.log(userData);
+    loading.classList.remove("show");
   } catch (error) {}
 }
 
 fetchUsers();
+
+window.addEventListener("scroll", () => {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY;
+
+  console.log(scrollable);
+  console.log(scrolled);
+
+  if (Math.ceil(scrolled) === scrollable) {
+    showLoading();
+  }
+});
+
+function showLoading() {
+  loading.classList.add("show");
+  setTimeout(fetchUsers, 1000);
+}
