@@ -21,6 +21,7 @@
   font-family: "Comfortaa", sans-serif;
   cursor: pointer;
   font-weight: 700;
+  margin-bottom: 102px;
 }
 
 .contact-section {
@@ -28,7 +29,7 @@
   display: flex;
   flex-direction: column;
   max-width: 400px;
-  bottom: -5%;
+  bottom: -16%;
   right: 0;
 }
 
@@ -168,7 +169,7 @@
 
   .contact-section {
     max-width: 300px;
-    bottom: -14%;
+    bottom: -27%;
   }
 
   .contact-text h1 {
@@ -295,5 +296,6 @@
 
   .submit-button {
     width: 100%;
+    margin-bottom: 0;
   }
 }
