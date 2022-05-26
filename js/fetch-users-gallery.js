@@ -1,33 +1,25 @@
-const api =
-  "https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=12";
-
 const galleryImages = document.querySelectorAll(".image");
 const username = document.querySelectorAll(".username");
 const modalText = document.querySelector(".modal-text");
-
-console.log(galleryImages);
+const loading = document.querySelector(".lds-ellipsis");
+const innerContainer = document.querySelector(".inner-behaviour");
 
 async function fetchUsers() {
   try {
-    const response = await fetch(api);
+    const response = await fetch(
+      `https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=18`
+    );
     const userData = await response.json();
 
-    for (i = 0; i < userData.length; i++) {
-      const data = userData[i].acf;
-      let artistName = data.artist_name;
-      let mainImage = data.main_image.url;
-      let mainImageAlt = data.main_image.alt;
-      let mainImageName = data.main_image_name;
+    console.log(userData);
 
-      galleryImages[i].innerHTML += `
-        <img
-                  src=${mainImage}
-                  alt=${mainImageAlt}
-                />
-        `;
+    const data = { post: userData };
 
-      username[i].innerHTML += `${artistName}`;
-    }
+    console.log(data);
+
+    loading.classList.remove("show");
+
+    addDataToDOM(data);
 
     // Modal starts:
     //! This is loading after the above is finnished
@@ -108,9 +100,207 @@ async function fetchUsers() {
       images[i].setAttribute("draggable", false);
       modalImg.setAttribute("draggable", false);
     }
-
-    console.log(userData);
   } catch (error) {}
+}
+
+function addDataToDOM(data) {
+  const gridContainer = document.querySelector(".grid-container");
+  console.log(data);
+  let postNumber;
+  gridContainer.innerHTML += `
+  <div class="gallery-container w-3 h-2 mobile-h-2">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
+              alt=${data.post[postNumber].acf.main_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-3 h-3 mobile-h-1">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${
+                data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
+              }
+              alt=${data.post[postNumber].acf.secondary1_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-2 h-2 mobile-h-1">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${
+                data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
+              }
+              alt=${data.post[postNumber].acf.secondary2_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-1 h-1 mobile-h-1">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
+              alt=${data.post[postNumber].acf.main_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-2 h-1 mobile-h-2">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${
+                data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
+              }
+              alt=${data.post[postNumber].acf.secondary1_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-2 h-1 mobile-h-1">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${
+                data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
+              }
+              alt=${data.post[postNumber].acf.secondary2_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-3 h-3 mobile-h-2">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
+              alt=${data.post[postNumber].acf.main_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-3 h-2 mobile-h-1">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${
+                data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
+              }
+              alt=${data.post[postNumber].acf.secondary1_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-1 h-1 mobile-h-1">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${
+                data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
+              }
+              alt=${data.post[postNumber].acf.secondary2_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-2 h-2 mobile-h-1">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
+              alt=${data.post[postNumber].acf.main_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-2 h-1 mobile-h-2">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${
+                data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
+              } 
+              alt=${data.post[postNumber].acf.secondary1_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+          <div class="gallery-container w-4 h-4 mobile-h-1">
+            <div class="gallery-item">
+              <div class="image">
+              <img
+              src=${
+                data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
+              }
+              alt=${data.post[postNumber].acf.secondary2_image_name}
+              >
+              </div>
+              <div class="username">
+              ${data.post[postNumber].acf.artist_name}
+              </div>
+            </div>
+          </div>
+  `;
+  innerContainer.appendChild(gridContainer);
+}
+
+window.addEventListener("scroll", () => {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY;
+
+  if (Math.ceil(scrolled) === scrollable) {
+    showLoading();
+  }
+});
+
+function showLoading() {
+  loading.classList.add("show");
+  setTimeout(fetchUsers, 500);
+}
+
+function getRandomNr() {
+  let random = Math.floor(Math.random() * 17) + 1;
+  return random;
 }
 
 fetchUsers();
