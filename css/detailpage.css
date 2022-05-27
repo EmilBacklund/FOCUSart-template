@@ -62,8 +62,13 @@ body img {
   overflow: hidden;
 }
 
-.detail-intro p a:hover {
+.detail-intro p a {
   text-decoration: underline;
+  font-size: 1rem;
+}
+
+.detail-intro p a:hover {
+  text-shadow: 0 0 0.01px black;
 }
 
 .detail-img {
@@ -211,10 +216,6 @@ body img {
 
   .detail-intro {
     min-width: 100%;
-  }
-
-  .main-picture {
-    height: 200px;
   }
 
   .profile-pic {
