@@ -7,7 +7,7 @@ const innerContainer = document.querySelector(".inner-behaviour");
 async function fetchUsers() {
   try {
     const response = await fetch(
-      `https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=18`
+      `https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=20`
     );
     const userData = await response.json();
 
@@ -29,12 +29,14 @@ async function fetchUsers() {
     const closeModal = document.querySelector(".close");
     const nextBtn = document.querySelector(".next-button");
     const prevBtn = document.querySelector(".prev-button");
+    const modalContainer = document.querySelector(".modal-container");
 
     images.forEach((image, index) => {
       image.addEventListener("click", () => {
         modalImg.src = image.src;
         modalText.innerHTML = image.alt;
         modal.classList.add("appear");
+        modalContainer.classList.add("appear");
 
         let imageIndex = index;
         let next = imageIndex++;
@@ -60,6 +62,7 @@ async function fetchUsers() {
             prev = next - 2;
           } else if (e.keyCode === 27) {
             modal.classList.remove("appear");
+            modalContainer.classList.remove("appear");
           }
         });
 
@@ -91,6 +94,16 @@ async function fetchUsers() {
 
         closeModal.addEventListener("click", () => {
           modal.classList.remove("appear");
+          modalContainer.classList.remove("appear");
+        });
+
+        modal.addEventListener("click", (e) => {
+          console.log(e.target);
+          if (e.target === this) {
+            return;
+          }
+          modal.classList.remove("appear");
+          modalContainer.classList.remove("appear");
         });
       });
     });
@@ -299,7 +312,8 @@ function showLoading() {
 }
 
 function getRandomNr() {
-  let random = Math.floor(Math.random() * 17) + 1;
+  let random = Math.floor(Math.random() * 20);
+  console.log(random);
   return random;
 }
 

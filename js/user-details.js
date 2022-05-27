@@ -88,6 +88,7 @@ async function fetchDetails() {
       userDetail.social_icon_twitter.url,
       userDetail.social_icon_vk.url,
       userDetail.social_icon_youtube.url,
+      userDetail.social_icon_etsy.url,
     ];
 
     const socialLinks = [
@@ -100,6 +101,7 @@ async function fetchDetails() {
       userDetail.social_link_twitter,
       userDetail.social_link_vk,
       userDetail.social_link_youtube,
+      userDetail.social_link_etsy,
     ];
 
     for (i = 0; i < socialIcons.length; i++) {
