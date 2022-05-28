@@ -27,8 +27,12 @@ async function fetchUsers() {
     const modalContainer = document.querySelector('.modal-container');
     const modalText = document.querySelector('.modal-text');
 
+    console.log(images);
+
     images.forEach((image, index) => {
       image.addEventListener('click', () => {
+        console.dir(modalImg);
+
         function getIDonClick() {
           for (i = 0; i < data.post.length; i++) {
             if (image.offsetParent.innerText == data.post[i].acf.artist_name) {
