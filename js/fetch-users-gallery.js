@@ -7,15 +7,11 @@ const innerContainer = document.querySelector('.inner-behaviour');
 async function fetchUsers() {
   try {
     const response = await fetch(
-      `https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=20`
+      `https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=22`
     );
     const userData = await response.json();
 
-    console.log(userData);
-
     const data = { post: userData };
-
-    console.log(data);
 
     loading.classList.remove('show');
 
@@ -56,11 +52,13 @@ async function fetchUsers() {
             modalText.innerHTML = userData[prev].acf.main_image_name;
             prev--;
             next = prev + 2;
+            console.log(imageIndex);
           } else if (e.keyCode === 39) {
             modalImg.src = images[next].src;
             modalText.innerHTML = userData[next].acf.main_image_name;
             next++;
             prev = next - 2;
+            console.log(imageIndex);
           } else if (e.keyCode === 27) {
             modal.classList.remove('appear');
             modalContainer.classList.remove('appear');
@@ -99,7 +97,6 @@ async function fetchUsers() {
         });
 
         modal.addEventListener('click', (e) => {
-          console.log(e.target);
           if (e.target === this) {
             return;
           }
@@ -119,7 +116,6 @@ async function fetchUsers() {
 
 function addDataToDOM(data) {
   const gridContainer = document.querySelector('.grid-container');
-  console.log(data);
   let postNumber;
   gridContainer.innerHTML += `
   <div class="gallery-container w-3 h-2 mobile-h-2">
@@ -313,8 +309,7 @@ function showLoading() {
 }
 
 function getRandomNr() {
-  let random = Math.floor(Math.random() * 20);
-  console.log(random);
+  let random = Math.floor(Math.random() * 22);
   return random;
 }
 
