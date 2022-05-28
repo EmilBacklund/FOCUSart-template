@@ -1,6 +1,5 @@
 const galleryImages = document.querySelectorAll('.image');
 const username = document.querySelectorAll('.username');
-const modalText = document.querySelector('.modal-text');
 const loading = document.querySelector('.lds-ellipsis');
 const innerContainer = document.querySelector('.inner-behaviour');
 
@@ -26,16 +25,27 @@ async function fetchUsers() {
     const nextBtn = document.querySelector('.next-button');
     const prevBtn = document.querySelector('.prev-button');
     const modalContainer = document.querySelector('.modal-container');
+    const modalText = document.querySelector('.modal-text');
 
     images.forEach((image, index) => {
       image.addEventListener('click', () => {
+        function getIDonClick() {
+          for (i = 0; i < data.post.length; i++) {
+            if (image.offsetParent.innerText == data.post[i].acf.artist_name) {
+              id = `/detailpage.html?id=${data.post[i].id}`;
+              return id;
+            }
+          }
+        }
+
+        let hrefURL = getIDonClick();
+
         modalImg.src = image.src;
-        modalText.innerHTML = image.alt;
+        modalText.innerHTML = `${image.alt} by <a title="See more of ${image.offsetParent.innerText}" href="${hrefURL}">${image.offsetParent.innerText}</a>`;
         modal.classList.add('appear');
         modalContainer.classList.add('appear');
 
         let imageIndex = index;
-        console.log(imageIndex);
         let next = imageIndex++;
         let prev = imageIndex--;
 
@@ -47,18 +57,48 @@ async function fetchUsers() {
             prev = images.length - 1;
           }
 
+          function getIDnext() {
+            for (i = 0; i < data.post.length; i++) {
+              if (
+                images[next].offsetParent.innerText ==
+                data.post[i].acf.artist_name
+              ) {
+                id = `/detailpage.html?id=${data.post[i].id}`;
+                return id;
+              }
+            }
+          }
+
+          let hrefNext = getIDnext();
+
+          function getIDprev() {
+            for (i = 0; i < data.post.length; i++) {
+              if (
+                images[prev].offsetParent.innerText ==
+                data.post[i].acf.artist_name
+              ) {
+                id = `/detailpage.html?id=${data.post[i].id}`;
+                return id;
+              }
+            }
+          }
+
+          let hrefPrev = getIDprev();
+
           if (e.keyCode === 37) {
             modalImg.src = images[prev].src;
-            modalText.innerHTML = userData[prev].acf.main_image_name;
+            modalText.innerHTML = `${images[prev].alt} by <a title="See more of ${images[prev].offsetParent.innerText}" href="${hrefPrev}">${images[prev].offsetParent.innerText}</a>`;
             prev--;
             next = prev + 2;
             console.log(imageIndex);
+            console.log(images.length);
           } else if (e.keyCode === 39) {
             modalImg.src = images[next].src;
-            modalText.innerHTML = userData[next].acf.main_image_name;
+            modalText.innerHTML = `${images[next].alt} by <a title="See more of ${images[next].offsetParent.innerText}" href="${hrefNext}">${images[next].offsetParent.innerText}</a>`;
+            console.log(hrefURL);
+            console.dir(images[next]);
             next++;
             prev = next - 2;
-            console.log(imageIndex);
           } else if (e.keyCode === 27) {
             modal.classList.remove('appear');
             modalContainer.classList.remove('appear');
@@ -72,8 +112,23 @@ async function fetchUsers() {
           if (prev < 0) {
             prev = images.length - 1;
           }
+
+          function getIDprevClick() {
+            for (i = 0; i < data.post.length; i++) {
+              if (
+                images[prev].offsetParent.innerText ==
+                data.post[i].acf.artist_name
+              ) {
+                id = `/detailpage.html?id=${data.post[i].id}`;
+                return id;
+              }
+            }
+          }
+
+          let hrefPrevClick = getIDprevClick();
+
           modalImg.src = images[prev].src;
-          modalText.innerHTML = userData[prev].acf.main_image_name;
+          modalText.innerHTML = `${images[prev].alt} by <a title="See more of ${images[prev].offsetParent.innerText}" href="${hrefPrevClick}">${images[prev].offsetParent.innerText}</a>`;
           prev--;
           next = prev + 2;
         });
@@ -85,8 +140,23 @@ async function fetchUsers() {
           if (prev < 0) {
             prev = images.length - 1;
           }
+
+          function getIDnextClick() {
+            for (i = 0; i < data.post.length; i++) {
+              if (
+                images[next].offsetParent.innerText ==
+                data.post[i].acf.artist_name
+              ) {
+                id = `/detailpage.html?id=${data.post[i].id}`;
+                return id;
+              }
+            }
+          }
+
+          let hrefNextClick = getIDnextClick();
+
           modalImg.src = images[next].src;
-          modalText.innerHTML = userData[next].acf.main_image_name;
+          modalText.innerHTML = `${images[next].alt} by <a title="See more of ${images[next].offsetParent.innerText}" href="${hrefNextClick}">${images[next].offsetParent.innerText}</a>`;
           next++;
           prev = next - 2;
         });
@@ -117,13 +187,14 @@ async function fetchUsers() {
 function addDataToDOM(data) {
   const gridContainer = document.querySelector('.grid-container');
   let postNumber;
+
   gridContainer.innerHTML += `
   <div class="gallery-container w-3 h-2 mobile-h-2">
             <div class="gallery-item">
               <div class="image">
               <img
               src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
-              alt=${data.post[postNumber].acf.main_image_name}
+              alt="${data.post[postNumber].acf.main_image_name}"
               >
               </div>
               <div class="username">
@@ -138,7 +209,7 @@ function addDataToDOM(data) {
               src=${
                 data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
               }
-              alt=${data.post[postNumber].acf.secondary1_image_name}
+              alt="${data.post[postNumber].acf.secondary1_image_name}"
               >
               </div>
               <div class="username">
@@ -153,7 +224,7 @@ function addDataToDOM(data) {
               src=${
                 data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
               }
-              alt=${data.post[postNumber].acf.secondary2_image_name}
+              alt="${data.post[postNumber].acf.secondary2_image_name}"
               >
               </div>
               <div class="username">
@@ -166,7 +237,7 @@ function addDataToDOM(data) {
               <div class="image">
               <img
               src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
-              alt=${data.post[postNumber].acf.main_image_name}
+              alt="${data.post[postNumber].acf.main_image_name}"
               >
               </div>
               <div class="username">
@@ -181,7 +252,7 @@ function addDataToDOM(data) {
               src=${
                 data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
               }
-              alt=${data.post[postNumber].acf.secondary1_image_name}
+              alt="${data.post[postNumber].acf.secondary1_image_name}"
               >
               </div>
               <div class="username">
@@ -196,7 +267,7 @@ function addDataToDOM(data) {
               src=${
                 data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
               }
-              alt=${data.post[postNumber].acf.secondary2_image_name}
+              alt="${data.post[postNumber].acf.secondary2_image_name}"
               >
               </div>
               <div class="username">
@@ -209,7 +280,7 @@ function addDataToDOM(data) {
               <div class="image">
               <img
               src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
-              alt=${data.post[postNumber].acf.main_image_name}
+              alt="${data.post[postNumber].acf.main_image_name}"
               >
               </div>
               <div class="username">
@@ -224,7 +295,7 @@ function addDataToDOM(data) {
               src=${
                 data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
               }
-              alt=${data.post[postNumber].acf.secondary1_image_name}
+              alt="${data.post[postNumber].acf.secondary1_image_name}"
               >
               </div>
               <div class="username">
@@ -239,7 +310,7 @@ function addDataToDOM(data) {
               src=${
                 data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
               }
-              alt=${data.post[postNumber].acf.secondary2_image_name}
+              alt="${data.post[postNumber].acf.secondary2_image_name}"
               >
               </div>
               <div class="username">
@@ -252,7 +323,7 @@ function addDataToDOM(data) {
               <div class="image">
               <img
               src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
-              alt=${data.post[postNumber].acf.main_image_name}
+              alt="${data.post[postNumber].acf.main_image_name}"
               >
               </div>
               <div class="username">
@@ -267,7 +338,7 @@ function addDataToDOM(data) {
               src=${
                 data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
               } 
-              alt=${data.post[postNumber].acf.secondary1_image_name}
+              alt="${data.post[postNumber].acf.secondary1_image_name}"
               >
               </div>
               <div class="username">
@@ -282,7 +353,7 @@ function addDataToDOM(data) {
               src=${
                 data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
               }
-              alt=${data.post[postNumber].acf.secondary2_image_name}
+              alt="${data.post[postNumber].acf.secondary2_image_name}"
               >
               </div>
               <div class="username">

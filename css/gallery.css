@@ -141,6 +141,7 @@
 
 .modal-image {
   width: 100%;
+  max-height: 50%;
   pointer-events: none;
   user-select: none;
 }
@@ -148,6 +149,15 @@
 .modal-text {
   margin-top: 1rem;
   color: #fff;
+  z-index: 12000;
+}
+
+.modal-text a {
+  text-decoration: underline;
+}
+
+.modal-text a:hover {
+  font-weight: 700;
 }
 
 .modal.appear,
@@ -342,7 +352,4 @@
     transform: translateY(0);
   }
 
-  .modal-image {
-    width: 100%;
-  }
 }
