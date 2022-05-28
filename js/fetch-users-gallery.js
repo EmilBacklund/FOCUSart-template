@@ -1,8 +1,8 @@
-const galleryImages = document.querySelectorAll(".image");
-const username = document.querySelectorAll(".username");
-const modalText = document.querySelector(".modal-text");
-const loading = document.querySelector(".lds-ellipsis");
-const innerContainer = document.querySelector(".inner-behaviour");
+const galleryImages = document.querySelectorAll('.image');
+const username = document.querySelectorAll('.username');
+const modalText = document.querySelector('.modal-text');
+const loading = document.querySelector('.lds-ellipsis');
+const innerContainer = document.querySelector('.inner-behaviour');
 
 async function fetchUsers() {
   try {
@@ -17,32 +17,33 @@ async function fetchUsers() {
 
     console.log(data);
 
-    loading.classList.remove("show");
+    loading.classList.remove('show');
 
     addDataToDOM(data);
 
     // Modal starts:
     //! This is loading after the above is finnished
-    const images = document.querySelectorAll(".image img");
-    const modal = document.querySelector(".modal");
-    const modalImg = document.querySelector(".modal-image");
-    const closeModal = document.querySelector(".close");
-    const nextBtn = document.querySelector(".next-button");
-    const prevBtn = document.querySelector(".prev-button");
-    const modalContainer = document.querySelector(".modal-container");
+    const images = document.querySelectorAll('.image img');
+    const modal = document.querySelector('.modal');
+    const modalImg = document.querySelector('.modal-image');
+    const closeModal = document.querySelector('.close');
+    const nextBtn = document.querySelector('.next-button');
+    const prevBtn = document.querySelector('.prev-button');
+    const modalContainer = document.querySelector('.modal-container');
 
     images.forEach((image, index) => {
-      image.addEventListener("click", () => {
+      image.addEventListener('click', () => {
         modalImg.src = image.src;
         modalText.innerHTML = image.alt;
-        modal.classList.add("appear");
-        modalContainer.classList.add("appear");
+        modal.classList.add('appear');
+        modalContainer.classList.add('appear');
 
         let imageIndex = index;
+        console.log(imageIndex);
         let next = imageIndex++;
         let prev = imageIndex--;
 
-        window.addEventListener("keyup", (e) => {
+        window.addEventListener('keyup', (e) => {
           if (next >= images.length) {
             next = 0;
           }
@@ -61,12 +62,12 @@ async function fetchUsers() {
             next++;
             prev = next - 2;
           } else if (e.keyCode === 27) {
-            modal.classList.remove("appear");
-            modalContainer.classList.remove("appear");
+            modal.classList.remove('appear');
+            modalContainer.classList.remove('appear');
           }
         });
 
-        prevBtn.addEventListener("click", () => {
+        prevBtn.addEventListener('click', () => {
           if (next >= images.length) {
             next = 0;
           }
@@ -79,7 +80,7 @@ async function fetchUsers() {
           next = prev + 2;
         });
 
-        nextBtn.addEventListener("click", () => {
+        nextBtn.addEventListener('click', () => {
           if (next >= images.length) {
             next = 0;
           }
@@ -92,32 +93,32 @@ async function fetchUsers() {
           prev = next - 2;
         });
 
-        closeModal.addEventListener("click", () => {
-          modal.classList.remove("appear");
-          modalContainer.classList.remove("appear");
+        closeModal.addEventListener('click', () => {
+          modal.classList.remove('appear');
+          modalContainer.classList.remove('appear');
         });
 
-        modal.addEventListener("click", (e) => {
+        modal.addEventListener('click', (e) => {
           console.log(e.target);
           if (e.target === this) {
             return;
           }
-          modal.classList.remove("appear");
-          modalContainer.classList.remove("appear");
+          modal.classList.remove('appear');
+          modalContainer.classList.remove('appear');
         });
       });
     });
     // Modal ends
 
     for (i = 0; i < images.length; i++) {
-      images[i].setAttribute("draggable", false);
-      modalImg.setAttribute("draggable", false);
+      images[i].setAttribute('draggable', false);
+      modalImg.setAttribute('draggable', false);
     }
   } catch (error) {}
 }
 
 function addDataToDOM(data) {
-  const gridContainer = document.querySelector(".grid-container");
+  const gridContainer = document.querySelector('.grid-container');
   console.log(data);
   let postNumber;
   gridContainer.innerHTML += `
@@ -297,7 +298,7 @@ function addDataToDOM(data) {
   innerContainer.appendChild(gridContainer);
 }
 
-window.addEventListener("scroll", () => {
+window.addEventListener('scroll', () => {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const scrolled = window.scrollY;
 
@@ -307,7 +308,7 @@ window.addEventListener("scroll", () => {
 });
 
 function showLoading() {
-  loading.classList.add("show");
+  loading.classList.add('show');
   setTimeout(fetchUsers, 500);
 }
 

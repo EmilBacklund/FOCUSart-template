@@ -1,19 +1,19 @@
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 
-const id = params.get("id");
+const id = params.get('id');
 
 const url = `https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts/${id}?acf_format=standard`;
 
-const paragraph1 = document.querySelector(".paragraph_1");
-const paragraph2 = document.querySelector(".paragraph_2");
-const section1 = document.querySelector(".section_1");
-const section2 = document.querySelector(".section_2");
-const email = document.querySelector(".email");
-const phoneNumber = document.querySelector(".phone-number");
-const links = document.querySelector(".links");
-const social = document.querySelector(".social");
-const header = document.querySelector(".profile-header");
+const paragraph1 = document.querySelector('.paragraph_1');
+const paragraph2 = document.querySelector('.paragraph_2');
+const section1 = document.querySelector('.section_1');
+const section2 = document.querySelector('.section_2');
+const email = document.querySelector('.email');
+const phoneNumber = document.querySelector('.phone-number');
+const links = document.querySelector('.links');
+const social = document.querySelector('.social');
+const header = document.querySelector('.profile-header');
 
 header.innerHTML = `<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>`;
 
@@ -43,8 +43,8 @@ async function fetchDetails() {
 
     if (!userDetail.email) {
       email.innerHTML = `N/A`;
-      email.attributes.href.nodeValue = "";
-      email.style.pointerEvents = "none";
+      email.attributes.href.nodeValue = '';
+      email.style.pointerEvents = 'none';
     } else {
       email.innerHTML = `${userDetail.email}`;
       email.attributes.href.nodeValue = `mailto: ${userDetail.email}`;
@@ -52,8 +52,8 @@ async function fetchDetails() {
 
     if (!userDetail.number) {
       phoneNumber.innerHTML = `N/A`;
-      phoneNumber.attributes.href.nodeValue = "";
-      phoneNumber.style.pointerEvents = "none";
+      phoneNumber.attributes.href.nodeValue = '';
+      phoneNumber.style.pointerEvents = 'none';
     } else {
       phoneNumber.innerHTML = `${userDetail.number}`;
       phoneNumber.attributes.href.nodeValue = `tel:${userDetail.number}`;
@@ -70,10 +70,10 @@ async function fetchDetails() {
     ${allLinks}
     `;
 
-    const allAnchorTags = document.querySelectorAll(".links a");
+    const allAnchorTags = document.querySelectorAll('.links a');
 
     for (let removeEmpty of allAnchorTags) {
-      if (removeEmpty.innerHTML === "") {
+      if (removeEmpty.innerHTML === '') {
         removeEmpty.parentNode.removeChild(removeEmpty);
       }
     }
@@ -89,6 +89,8 @@ async function fetchDetails() {
       userDetail.social_icon_vk.url,
       userDetail.social_icon_youtube.url,
       userDetail.social_icon_etsy.url,
+      userDetail.social_icon_patreon.url,
+      userDetail.social_icon_tiktok.url,
     ];
 
     const socialLinks = [
@@ -102,6 +104,8 @@ async function fetchDetails() {
       userDetail.social_link_vk,
       userDetail.social_link_youtube,
       userDetail.social_link_etsy,
+      userDetail.social_link_patreon,
+      userDetail.social_link_tiktok,
     ];
 
     for (i = 0; i < socialIcons.length; i++) {
