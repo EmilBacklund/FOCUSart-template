@@ -108,15 +108,31 @@ async function fetchDetails() {
       userDetail.social_link_tiktok,
     ];
 
+    const socialTitle = [
+      userDetail.social_icon_behance.title,
+      userDetail.social_icon_devianart.title,
+      userDetail.social_icon_facebook.title,
+      userDetail.social_icon_instagram.title,
+      userDetail.social_icon_pinterest.title,
+      userDetail.social_icon_tublr.title,
+      userDetail.social_icon_twitter.title,
+      userDetail.social_icon_vk.title,
+      userDetail.social_icon_youtube.title,
+      userDetail.social_icon_etsy.title,
+      userDetail.social_icon_patreon.title,
+      userDetail.social_icon_tiktok.title,
+    ];
+
     for (i = 0; i < socialIcons.length; i++) {
       if (socialIcons[i]) {
         console.log(socialIcons[i]);
         social.innerHTML += `
-    <a href=${socialLinks[i]} target="_blank">
+    <a href=${socialLinks[i]} title="${userDetail.artist_name} on ${socialTitle[i]}" target="_blank">
     <img
       class="social-icons"
       src=${socialIcons[i]}
       alt=""
+      
     />
   </a>
     `;

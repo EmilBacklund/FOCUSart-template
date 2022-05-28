@@ -140,9 +140,11 @@
 }
 
 .modal-image {
-  width: 76%;
+  width: 100%;
   pointer-events: none;
   user-select: none;
+  object-fit: contain;
+  max-height: 90vh;
 }
 
 .modal-text {
@@ -153,10 +155,11 @@
 
 .modal-text a {
   text-decoration: underline;
+  color: #fff;
 }
 
 .modal-text a:hover {
-  font-weight: 700;
+  text-shadow: 0 0 .01px #fff;
 }
 
 .modal.appear,
@@ -186,12 +189,12 @@
 }
 
 .prev-button {
-  left: -2rem;
+  left: -10rem;
   transform: scaleX(-1) translateY(-50%);
 }
 
 .next-button {
-  right: -2rem;
+  right: -10rem;
   transform: translatey(-50%);
 }
 
@@ -271,6 +274,27 @@
   }
 }
 
+.aside-box {
+  width: 100%;
+  justify-content: flex-end;
+  position: fixed;
+}
+
+.aside-nav ul {
+  position: fixed;
+}
+
+@media screen and (max-width: 1055px) {
+
+  .next-button {
+    right: 0.5rem;
+  }
+
+  .prev-button {
+    left: 0.5rem;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .grid-container {
     grid-template-columns: repeat(4, 1fr);
@@ -291,18 +315,6 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    width: 100%;
-  }
-
-  .next-button {
-    right: 0.5rem;
-  }
-
-  .prev-button {
-    left: 0.5rem;
-  }
-
-  .modal-image {
     width: 100%;
   }
 }
@@ -337,22 +349,5 @@
     grid-row: span 2;
   }
 
-  .prev-button,
-  .next-button {
-    position: absolute;
-    bottom: -2rem;
-    top: unset;
-    cursor: pointer;
-  }
-
-  .prev-button {
-    left: 1rem;
-    transform: scaleX(-1) translateY(0);
-  }
-
-  .next-button {
-    right: 1rem;
-    transform: translateY(0);
-  }
 
 }
