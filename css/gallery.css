@@ -284,6 +284,10 @@
   position: fixed;
 }
 
+.aside-box .toggle-mode {
+  width: 65%;
+}
+
 @media screen and (max-width: 1055px) {
 
   .next-button {

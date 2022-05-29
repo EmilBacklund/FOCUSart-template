@@ -197,6 +197,9 @@ function addDataToDOM(data) {
               <img
               src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
               alt="${data.post[postNumber].acf.main_image_name}"
+              title="${data.post[postNumber].acf.main_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -212,6 +215,9 @@ function addDataToDOM(data) {
                 data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
               }
               alt="${data.post[postNumber].acf.secondary1_image_name}"
+              title="${data.post[postNumber].acf.secondary1_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -227,6 +233,9 @@ function addDataToDOM(data) {
                 data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
               }
               alt="${data.post[postNumber].acf.secondary2_image_name}"
+              title="${data.post[postNumber].acf.secondary2_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -240,6 +249,9 @@ function addDataToDOM(data) {
               <img
               src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
               alt="${data.post[postNumber].acf.main_image_name}"
+              title="${data.post[postNumber].acf.main_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -255,6 +267,9 @@ function addDataToDOM(data) {
                 data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
               }
               alt="${data.post[postNumber].acf.secondary1_image_name}"
+              title="${data.post[postNumber].acf.secondary1_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -270,6 +285,9 @@ function addDataToDOM(data) {
                 data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
               }
               alt="${data.post[postNumber].acf.secondary2_image_name}"
+              title="${data.post[postNumber].acf.secondary2_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -283,6 +301,9 @@ function addDataToDOM(data) {
               <img
               src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
               alt="${data.post[postNumber].acf.main_image_name}"
+              title="${data.post[postNumber].acf.main_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -298,6 +319,9 @@ function addDataToDOM(data) {
                 data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
               }
               alt="${data.post[postNumber].acf.secondary1_image_name}"
+              title="${data.post[postNumber].acf.secondary1_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -313,6 +337,9 @@ function addDataToDOM(data) {
                 data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
               }
               alt="${data.post[postNumber].acf.secondary2_image_name}"
+              title="${data.post[postNumber].acf.secondary2_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -326,6 +353,9 @@ function addDataToDOM(data) {
               <img
               src=${data.post[(postNumber = getRandomNr())].acf.main_image.url}
               alt="${data.post[postNumber].acf.main_image_name}"
+              title="${data.post[postNumber].acf.main_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -341,6 +371,9 @@ function addDataToDOM(data) {
                 data.post[(postNumber = getRandomNr())].acf.secondary1_image.url
               } 
               alt="${data.post[postNumber].acf.secondary1_image_name}"
+              title="${data.post[postNumber].acf.secondary1_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -356,6 +389,9 @@ function addDataToDOM(data) {
                 data.post[(postNumber = getRandomNr())].acf.secondary2_image.url
               }
               alt="${data.post[postNumber].acf.secondary2_image_name}"
+              title="${data.post[postNumber].acf.secondary2_image_name} by ${
+    data.post[postNumber].acf.artist_name
+  }"
               >
               </div>
               <div class="username">
@@ -367,11 +403,15 @@ function addDataToDOM(data) {
   innerContainer.appendChild(gridContainer);
 }
 
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', (e) => {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const scrolled = window.scrollY;
+  const modalAppear = document.querySelectorAll('.appear');
 
   if (Math.ceil(scrolled) === scrollable) {
+    for (i = 0; i < modalAppear.length; i++) {
+      modalAppear[i].classList.remove('appear');
+    }
     showLoading();
   }
 });
