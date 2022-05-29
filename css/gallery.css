@@ -186,6 +186,7 @@
   height: 2rem;
   width: 2rem;
   top: 50%;
+  z-index: 1000000;
 }
 
 .prev-button {
