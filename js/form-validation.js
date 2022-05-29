@@ -28,6 +28,11 @@ function validateForm() {
   } else {
     emailError.style.display = 'block';
   }
+  if (validateNumber(phone.value) || phone.value === '') {
+    phoneError.style.display = 'none';
+  } else {
+    phoneError.style.display = 'block';
+  }
   if (
     messageError.style.display === 'none' &&
     emailError.style.display === 'none' &&
@@ -51,4 +56,8 @@ function validateEmail(email) {
   const regEx = /\S+@\S+/;
   const patternMatches = regEx.test(email);
   return patternMatches;
+}
+
+function validateNumber(value) {
+  return /^\d{7,}$/.test(value.replace(/[\s()+\-\.]|ext/gi, ''));
 }

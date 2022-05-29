@@ -141,10 +141,10 @@
 
 .modal-image {
   width: 100%;
-  pointer-events: none;
   user-select: none;
   object-fit: contain;
   max-height: 90vh;
+  z-index: 99999;
 }
 
 .modal-text {

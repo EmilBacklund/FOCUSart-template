@@ -44,6 +44,7 @@ async function fetchUsers() {
           let hrefURL = getIDonClick();
 
           modalImg.src = image.src;
+          modalImg.title = image.title;
           modalText.innerHTML = `${image.alt} by <a title="See more of ${image.offsetParent.innerText}" href="${hrefURL}">${image.offsetParent.innerText}</a>`;
           modal.classList.add('appear');
           modalContainer.classList.add('appear');
@@ -90,11 +91,13 @@ async function fetchUsers() {
 
             if (e.keyCode === 37) {
               modalImg.src = images[prev].src;
+              modalImg.title = images[prev].title;
               modalText.innerHTML = `${images[prev].alt} by <a title="See more of ${images[prev].offsetParent.innerText}" href="${hrefPrev}">${images[prev].offsetParent.innerText}</a>`;
               prev--;
               next = prev + 2;
             } else if (e.keyCode === 39) {
               modalImg.src = images[next].src;
+              modalImg.title = images[next].title;
               modalText.innerHTML = `${images[next].alt} by <a title="See more of ${images[next].offsetParent.innerText}" href="${hrefNext}">${images[next].offsetParent.innerText}</a>`;
               next++;
               prev = next - 2;
@@ -127,6 +130,7 @@ async function fetchUsers() {
             let hrefPrevClick = getIDprevClick();
 
             modalImg.src = images[prev].src;
+            modalImg.title = images[prev].title;
             modalText.innerHTML = `${images[prev].alt} by <a title="See more of ${images[prev].offsetParent.innerText}" href="${hrefPrevClick}">${images[prev].offsetParent.innerText}</a>`;
             prev--;
             next = prev + 2;
@@ -155,6 +159,7 @@ async function fetchUsers() {
             let hrefNextClick = getIDnextClick();
 
             modalImg.src = images[next].src;
+            modalImg.title = images[next].title;
             modalText.innerHTML = `${images[next].alt} by <a title="See more of ${images[next].offsetParent.innerText}" href="${hrefNextClick}">${images[next].offsetParent.innerText}</a>`;
             next++;
             prev = next - 2;
