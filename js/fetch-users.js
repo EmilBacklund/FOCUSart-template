@@ -14,13 +14,6 @@ async function fetchUsers() {
       let mainImage = data.main_image.url;
       let mainImageAlt = data.main_image.alt;
 
-      card[i].innerHTML += `<div class="lds-ellipsis">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>`;
-
       card[
         i
       ].attributes.onclick.nodeValue = `javascript:window.location='/detailpage.html?id=${userData[i].id}'`;
@@ -39,3 +32,9 @@ async function fetchUsers() {
 }
 
 fetchUsers();
+
+const interactionHelp = document.querySelector('.interaction-help p');
+
+setTimeout(function () {
+  interactionHelp.style.opacity = '1';
+}, 3800);
