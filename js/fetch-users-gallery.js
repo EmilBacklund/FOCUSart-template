@@ -16,8 +16,6 @@ async function fetchUsers() {
 
     addDataToDOM(data);
 
-    // Modal starts:
-    //! This is loading after the above is finnished
     function loadModal() {
       const images = document.querySelectorAll('.image img');
       const modal = document.querySelector('.modal');
@@ -181,8 +179,6 @@ async function fetchUsers() {
       });
     }
     loadModal();
-
-    // Modal ends
 
     for (i = 0; i < images.length; i++) {
       images[i].setAttribute('draggable', false);
