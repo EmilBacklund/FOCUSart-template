@@ -25,7 +25,10 @@ async function fetchDetails() {
 
     console.log(userDetail);
 
-    document.title = `Focusart | ${userDetail.artist_name}`;
+    document.title = `Focusart | ${userDetail.artist_name} | Find ${userDetail.artist_name}'s Latest Artwork And Other Platforms`;
+    document.querySelector(
+      'meta[name="description"]'
+    ).content = `Check out ${userDetail.artist_name}'s art on Focusart. Browse the user profile and find other platforms and social media the artist is using.`;
 
     header.innerHTML = `
     <div class="artist-name-card">
@@ -131,8 +134,6 @@ async function fetchDetails() {
     <img
       class="social-icons"
       src=${socialIcons[i]}
-      alt=""
-      
     />
   </a>
     `;
