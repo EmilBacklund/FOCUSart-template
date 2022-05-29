@@ -28,12 +28,8 @@ async function fetchUsers() {
       const modalContainer = document.querySelector('.modal-container');
       const modalText = document.querySelector('.modal-text');
 
-      console.log(images);
-
       images.forEach((image, index) => {
         image.addEventListener('click', () => {
-          console.dir(modalImg);
-
           function getIDonClick() {
             for (i = 0; i < data.post.length; i++) {
               if (
@@ -97,13 +93,9 @@ async function fetchUsers() {
               modalText.innerHTML = `${images[prev].alt} by <a title="See more of ${images[prev].offsetParent.innerText}" href="${hrefPrev}">${images[prev].offsetParent.innerText}</a>`;
               prev--;
               next = prev + 2;
-              console.log(imageIndex);
-              console.log(images.length);
             } else if (e.keyCode === 39) {
               modalImg.src = images[next].src;
               modalText.innerHTML = `${images[next].alt} by <a title="See more of ${images[next].offsetParent.innerText}" href="${hrefNext}">${images[next].offsetParent.innerText}</a>`;
-              console.log(hrefURL);
-              console.dir(images[next]);
               next++;
               prev = next - 2;
             } else if (e.keyCode === 27) {

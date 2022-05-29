@@ -23,8 +23,6 @@ async function fetchDetails() {
     const jsonData = await response.json();
     const userDetail = jsonData.acf;
 
-    console.log(userDetail);
-
     document.title = `Focusart | ${userDetail.artist_name} | Find ${userDetail.artist_name}'s Latest Artwork And Other Platforms`;
     document.querySelector(
       'meta[name="description"]'
@@ -128,7 +126,6 @@ async function fetchDetails() {
 
     for (i = 0; i < socialIcons.length; i++) {
       if (socialIcons[i]) {
-        console.log(socialIcons[i]);
         social.innerHTML += `
     <a href=${socialLinks[i]} title="${userDetail.artist_name} on ${socialTitle[i]}" target="_blank">
     <img
