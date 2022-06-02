@@ -6,7 +6,7 @@ const innerContainer = document.querySelector('.inner-behaviour');
 async function fetchUsers() {
   try {
     const response = await fetch(
-      `https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=26`
+      `https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=32`
     );
     const userData = await response.json();
 
@@ -423,7 +423,7 @@ function showLoading() {
 }
 
 function getRandomNr() {
-  let random = Math.floor(Math.random() * 26);
+  let random = Math.floor(Math.random() * 32);
   return random;
 }
 
