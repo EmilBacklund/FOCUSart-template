@@ -1,5 +1,7 @@
 # Project Exam
 
+<img src="/images/readme-picture.jpg"/>
+
 Our goals to achieve from school on this project:
 
 - To put into practice the skills learned over first year of studies.
@@ -8,7 +10,7 @@ Our goals to achieve from school on this project:
 - Make at least 12 blog posts on WordPress
 - Fetch the data from WordPress, use in on my website
 - Use HotJar
-- Testing 
+- Testing
 - Write a report
 
 I got an A for this project [FOCUSart](https://www.focusart.info/)
