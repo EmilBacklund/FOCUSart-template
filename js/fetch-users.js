@@ -1,7 +1,7 @@
 const api =
-  'https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=12';
-const card = document.querySelectorAll('.card');
-const carouselSlide = document.querySelector('.carousel-slide');
+  "https://emilbacklund.flywheelsites.com/wp-json/wp/v2/posts?acf_format=standard&per_page=12";
+const card = document.querySelectorAll(".card");
+const carouselSlide = document.querySelector(".carousel-slide");
 
 async function fetchUsers() {
   try {
@@ -32,9 +32,3 @@ async function fetchUsers() {
 }
 
 fetchUsers();
-
-const interactionHelp = document.querySelector('.interaction-help p');
-
-setTimeout(function () {
-  interactionHelp.style.opacity = '1';
-}, 3800);

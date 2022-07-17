@@ -18,7 +18,7 @@ body img {
 }
 
 .artist-name-card h2 {
-  font-size: 1.125rem;
+  font-size: 14px;
 }
 
 .card-info {
@@ -53,47 +53,6 @@ body img {
   transform: translate(-50%, -50%);
 }
 
-.next-box p {
-  text-align: right;
-}
-
-.next-box,
-.previous-box {
-  user-select: none;
-  max-height: 132px;
-  flex: 1;
-  z-index: 1000;
-}
-
-.previous-icon,
-.next-icon {
-  cursor: pointer;
-  background-size: contain;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  transform: translateY(70%);
-}
-
-.previous-icon {
-  background-image: var(--toggle-arrow-previous);
-}
-
-.next-icon {
-  background-image: var(--toggle-arrow-next);
-}
-
-.interaction-help {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.interaction-help p {
-  opacity: 0;
-  transition: 1s ease-in;
-}
-
 .card {
   width: 100%;
   height: 100%;
@@ -116,10 +75,6 @@ body img {
   gap: 16px;
   width: 100%;
   height: 48.8%;
-}
-
-.carousel {
-  position: relative;
 }
 
 .carousel-container {
@@ -155,22 +110,9 @@ body img {
   display: flex;
 }
 
-.is-hidden {
-  display: none;
-}
-
-.carousel-nav {
-  display: none;
-}
-
 @media screen and (max-width: 768px) {
   .carousel-container {
     height: 50vh;
-  }
-
-  .aside-left .previous-icon,
-  .aside-right .next-icon {
-    display: none;
   }
 
   .card:hover .card-info {
@@ -179,10 +121,6 @@ body img {
 
   .card-info p {
     font-size: 0.75rem;
-  }
-
-  .interaction-help {
-    display: none;
   }
 
   .header-flex {
@@ -213,28 +151,5 @@ body img {
 
   .container {
     width: 100%;
-  }
-
-  .mobile-image-nav {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1240px;
-    margin: 0 auto;
-    width: 90%;
-    margin-bottom: 16px;
-    height: 48.03px;
-  }
-
-  .mobile-image-nav .previous-icon,
-  .mobile-image-nav .next-icon {
-    transform: translateY(30%);
-    height: 90px;
-    width: 128.78px;
-  }
-
-  .next-box,
-  .previous-box {
-    max-height: 0;
-    flex: none;
   }
 }
