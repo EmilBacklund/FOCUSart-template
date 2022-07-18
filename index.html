@@ -40,8 +40,8 @@
     </script>
   </head>
   <body ondragstart="return false">
-    <div class="container">
-      <div class="inner-container inner-behaviour">
+    <div class="sticky-header">
+      <header class="container">
         <div class="header-flex">
           <div class="header-menu">
             <div class="hamburger-menu">
@@ -58,9 +58,13 @@
                 <li><a href="contact.html">Contact</a></li>
               </ul>
             </nav>
-            <a href="index.html">
+            <a class="focusart-logo-link" href="index.html">
               <div class="focusart-logo"></div>
             </a>
+            <div class="login-section login-mobile">
+              <button class="log-in">Log In</button>
+              <button class="sign-up">Sign Up</button>
+            </div>
           </div>
           <ul class="pc-nav-menu">
             <li>
@@ -70,27 +74,32 @@
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-          <div class="login-section">
+          <div class="login-section login-pc">
             <button class="log-in">Log In</button>
             <button class="sign-up">Sign Up</button>
           </div>
         </div>
-        <div class="carousel-container">
-          <div class="carousel-track">
-            <div class="carousel-slide current-slide">
-              <div class="card-flex">
-                <div class="card" onclick=""></div>
-                <div class="card" onclick=""></div>
-                <div class="card" onclick=""></div>
-              </div>
-              <div class="card-flex">
-                <div class="card" onclick=""></div>
-                <div class="card" onclick=""></div>
-                <div class="card" onclick=""></div>
-              </div>
-            </div>
-          </div>
+      </header>
+      <div class="banner">
+        <div class="container">
+          <p class="banner-info">Latest posts</p>
         </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card-flex">
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
+        <div class="card" onclick=""></div>
       </div>
     </div>
     <script src="js/mobile-menu.js"></script>
